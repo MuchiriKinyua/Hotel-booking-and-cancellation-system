@@ -1,4 +1,4 @@
-# Phase-5-Capstone-Project
+# HOTEL BOOKING AND CANCELLATION SYSTEM
 ## Overview
 This project aims to analyze hotel booking data to understand and predict factors influencing cancellations. With a focus on City and Resort Hotels, the goal is to identify patterns and provide recommendations to mitigate cancellation risks. The predictive model developed will enhance revenue stability by recognizing seasonal trends, analyzing waiting times, and enabling personalized loyalty programs. Ultimately, the project seeks to optimize booking processes and contribute to increased profitability in the hotel industry.
 
