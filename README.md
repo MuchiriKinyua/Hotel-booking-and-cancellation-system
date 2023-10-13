@@ -189,18 +189,117 @@ The dataset was split into training and testing sets after scaling the features.
 - The dataset was extensively processed and transformed, resulting in a structured and balanced dataset ready for further analysis and model training. The preprocessing steps aimed to enhance the dataset's quality, reduce dimensionality, and address class imbalance, setting the stage for effective machine learning model development.
 
 ## 7. Data Modelling
+**Model Training and Evaluation:**
+Trained and evaluated multiple classification models, including Logistic Regression, Decision Trees, Random Forest, Gradient Boosting, Support Vector Machines (SVM), and Neural Networks.
+Used common evaluation metrics such as accuracy, precision, recall, and F1 score.
+**Hyperparameter Tuning:**
+Applied hyperparameter tuning using techniques like GridSearchCV and RandomizedSearchCV to optimize model performance.
+
+Model Results:
+**Logistic Regression:**
+Achieved an accuracy of approximately 82.03%.
+Utilized a classification report to provide detailed insights into precision, recall, and F1 score for both classes (Class 0 and Class 1).
+Employed ROC curves to visualize the model's performance.
+**Decision Trees:**
+Initially trained a Decision Tree model and evaluated its performance metrics.
+Conducted hyperparameter tuning using GridSearchCV to optimize the Decision Tree model.
+Achieved an accuracy of 92% on the training data and 84% on the test data.
+**Random Forest:**
+Created a Random Forest Classifier with 100 trees .
+Generated a confusion matrix and visualized it as a heatmap.
+Provided accuracy scores for both classes (Not Cancelled and Cancelled).
+**Gradient Boosting:**
+Implemented a Gradient Boosting Classifier using the Pipeline module.
+Conducted cross-validation to evaluate the model's performance on training and test datasets.
+Utilized RandomizedSearchCV for hyperparameter tuning and identified the best parameter combination.
+Displayed training and testing metrics, including accuracy, F1 score, precision, and recall.
+**SVM (Support Vector Machines):**
+Trained an SVM model with a linear kernel and evaluated its performance.
+Applied SMOTE for oversampling to address class imbalance.
+Utilized cross-validation to assess the model's generalization performance.
+**Neural Networks:**
+Implemented a neural network with three layers (input, hidden, and output).
+Compiled the model using binary crossentropy loss and Adam optimizer.
+Trained the neural network for 20 epochs and displayed training loss.
+Achieved an accuracy of 84% on the test data.
+**Model Storage:**
+Saved the trained Logistic Regression model to a file (logistic_regression_model.pkl).
+Saved the trained Random Forest model to a file (random_forest_model.pkl).
+Saved the trained Gradient Boosting model to a file (gradient_boost_model.pkl).
+Saved the trained Neural Network model to a file (keras_model.h5).
 
 ## 8. Evaluation
+**Chosen Metric: Accuracy**
+We opted for accuracy as our primary evaluation metric due to its stability and simplicity. Accuracy represents the overall correctness of the model's predictions.
 
-## 9. Recommendations
+**Top 3 Performing Models**:
+**Gradient Boosting Model:**
+Achieved high accuracy on both training and testing data.
+Robust performance in terms of precision, recall, and F1-score.
+Demonstrated effectiveness in handling the classification task.
 
-## 10. Conclusions
+**Random Forest Model:**
+Showcased strong accuracy with reliable performance on the test set.
+Interpretable confusion matrix highlighted good classification results.
+Provides a balance between simplicity and effectiveness.
 
-## 11. Challenges
+**Neural Networks Model:**
+Utilized a deep learning approach for complex patterns.
+Demonstrated competitive accuracy, precision, recall, and F1-score.
+Leverages the power of neural networks for intricate relationships.
 
-Before you begin, ensure you have met the following requirements:
+**Model Selection Rationale:**
+The decision to choose these three models is based on their consistent and high accuracy across various evaluation metrics. The Gradient Boosting model excels in capturing complex relationships, the Random Forest model provides robust results with simplicity, and the Neural Networks model leverages deep learning capabilities.
 
-- Python 3.x installed
-- (Any other dependencies or prerequisites)
+**Future Considerations:**
+Further optimization and fine-tuning may be explored, and ensemble methods could be considered for combining the strengths of multiple models. Regular monitoring and updates to the models should be conducted to ensure performance remains effective over time.
 
-## Installation
+Users can refer to this README for quick insights into the success of the models in addressing the classification task.
+## 9. Conclusions
+1. **Customer Retention:**
+   - Guests who have visited the hotel are not returning.
+
+2. **Cancellations in City Hotel:**
+   - City hotels experience higher cancellation rates.
+
+3. **Improving Guest Experience:**
+   - Focus on understanding the reasons for guest checkouts and cancellations.
+
+4. **Meal Preferences:**
+   - Guests prefer Bed and Breakfast (BB) over Full Board (FB).
+
+5. **Booking Channels:**
+   - Guests prefer using Travel/Tour Agents (TATO) for bookings.
+
+6. **Traffic Analysis:**
+   - Both City and Resort hotels receive high traffic during weekends. Resort hotels have higher traffic during weekdays.
+
+7. **Online Travel Agent vs. Offline TA:**
+   - Online travel agents have a larger clientele but also experience higher cancellations.
+   - 
+## 10. Recommendations
+## Recommendations
+
+1. **Rewarding Repeat Guests:**
+   - Implement a rewards program for repeat guests to foster loyalty.
+   - Offer special packages, discounts, or exclusive perks to encourage repeat bookings.
+2. **Staff Training:**
+   - Invest in comprehensive training for staff to enhance guest experience.
+   - Focus on customer service, conflict resolution, and personalized interactions.
+3. **Diverse Advertising:**
+   - Utilize a multi-channel advertising strategy, including social media, billboards, and television.
+   - Increase visibility and attract a diverse audience through targeted marketing.
+4. **Web Application for Direct Bookings:**
+   - Develop a user-friendly web application for guests to book and inquire directly.
+   - Streamline the booking process to enhance convenience for potential guests.
+5. **Seasonal Discounts:**
+   - Introduce discounts during specific times of the year to boost bookings.
+   - Capitalize on seasonal trends and offer attractive promotions.
+6. **Partnerships with AgentCompanies:**
+   - Establish partnerships with companies to attract clients through their agents.
+   - Leverage corporate relationships to drive business and increase occupancy.
+7. **Enhancements to Facilities:**
+   - Improve the hotel's aesthetic appeal by adding plants and art.
+   - Increase floor space to alleviate congestion and create a more spacious environment.
+     
+Implementation of these strategies can contribute to the long-term success and growth of the hotel.
