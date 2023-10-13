@@ -77,6 +77,7 @@ accuracy_score, f1_score, roc_curve, auc
     - `previous_cancellations` and `previous_bookings_not_canceled`: Count of prior cancellations and non-canceled bookings.
     - `deposit_type`: Type of deposit made for the reservation.
     - `adr`: Average Daily Rate.
+
 **Data Types:**
 - The dataset contains a mix of data types, including integers, floats, and objects.
 **Missing Data:**
@@ -87,10 +88,105 @@ accuracy_score, f1_score, roc_curve, auc
 This dataset helps us understand trends in hotel bookings, cancellations, and customer behaviors. We'll explore these patterns further in our analysis.
 
 ## 4. Data Preparation
+**Checking for Missing Values**
+We started by looking for missing values in our dataset. Here are the columns with missing values and how we handled them:
+
+**Handling 'Country' Missing Values**
+We found some missing values in the 'country' column (about 0.41% of the total data). Since this is a small percentage, we decided to drop those rows.
+**Handling 'Agent' Missing Values**
+The 'agent' column also had missing values. Since this column is crucial, we filled the missing values with '0', representing clients who didn't use an agent.
+**Handling 'Company' Missing Values**
+The 'company' column had a high percentage (94.43%) of missing values, so we decided to drop the entire column.
+**Handling 'Children' Missing Values**
+The 'children' column had a small number (4) of missing values. We filled these with the median value.
+**Checking for Duplicates**
+We checked for duplicate records in our dataset and found none.
+**Checking for Placeholders**
+We looked for and removed placeholders in our categorical columns to improve code readability.
+**Removing Whitespace**
+We ensured that there were no leading or trailing whitespaces in any of our columns.
+**Handling Outliers**
+We identified outliers in the 'lead_time' and 'adr' columns. However, we chose not to remove them as they could contain important information for predicting hotel cancellations.
+Our data is now cleaned and ready for analysis.
 
 ## 5. EDA
+### Univariate Analysis Results
+#### 1. Repeated Guests
+- **Observation:** The count of repeated guests is low, indicating a higher influx of new guests.
+- **Insight:** Hotels should focus on retaining and attracting repeated guests, potentially through loyalty programs.
 
-## 6. Data Preprocessin
+#### 2. Reservation Status
+- **Observation:** Check-out guests have the highest count, while no-shows have the lowest.
+- **Insight:** Guests who complete their stays contribute significantly to revenue, while no-shows should be addressed to minimize revenue loss.
+
+#### 3. Hotel Preference
+- **Observation:** City hotels are more preferred than resort hotels.
+- **Insight:** Factors like location, pricing, or service quality may influence guests' hotel preferences.
+
+#### 4. Cancellation Overview
+- **Observation:** Most guests did not cancel, indicating positive revenue trends.
+- **Insight:** Understanding customer preferences and satisfaction contributes to a positive business outlook.
+
+#### 5. Distribution Channel
+- **Observation:** Travel/Tour Agents (TATO) have the highest count, while Undefined has the lowest.
+- **Insight:** Guests prefer using travel companies for bookings, emphasizing the significance of partnerships with travel agencies.
+
+### Bivariate Analysis
+
+#### 1. Market Segment vs. Cancellation
+- **Observation:** Online bookings (TA) show higher cancellation counts compared to offline bookings.
+- **Insight:** Remote cancellation options lead to higher online cancellations, highlighting the importance of streamlined online cancellation processes.
+
+#### 2. Customer Type vs. Cancellation
+- **Observation:** Transient customer types are more likely to cancel or not cancel.
+- **Insight:** Focusing on service quality for transient guests may enhance overall satisfaction.
+
+#### 3. Hotel Type vs. Cancellation
+- **Observation:** City hotels experience more cancellations than resort hotels.
+- **Insight:** City hotels should analyze factors contributing to cancellations and implement strategies for improvement.
+
+### Multivariate Analysis 
+
+#### 1. Market Segment, Previous Bookings, and Cancellations
+- **Observation:** Loyalty patterns vary among market segments, offering insights into consistent customer behavior.
+- **Insight:** Tailoring strategies for each market segment enhances loyalty and operational efficiency.
+
+#### 2. Hotel Type, Weekend Nights, and Week Nights
+- **Observation:** City hotels have concentrated weekend stays, while resort hotels show a more balanced distribution.
+- **Insight:** Operational planning and targeted marketing can be optimized based on these patterns for enhanced guest satisfaction and efficiency.
+
+## 6. Data Preprocessing
+6.1 Correlation Analysis
+We started by examining the correlation between numerical columns. A heatmap was created to visualize the correlation matrix. Notably, a correlation coefficient of 0.54 indicated a moderate positive correlation between 'arrival_date_year' and 'arrival_date_week_number.' To enhance model stability and interpretability, we retained only 'arrival_date_week_number.' Additionally, columns like 'name,' 'email,' 'phone-number,' and 'credit_card' were dropped due to privacy concerns and to reduce dimensionality and computational complexity.
+
+6.2 Creating 'total_guest' Column
+We introduced a new feature, 'total_guests,' which represents the sum of 'adults,' 'children,' and 'babies.' This consolidation simplifies the representation of the number of guests.
+
+6.3 Binary Features for Special Requests
+Considering that over 50% of the dataset had no special requests, we created a binary feature, 'has_special_requests,' to represent whether any special requests were made by guests. This not only reduces computational complexity but also retains essential information about guest preferences.
+
+6.4 Lead Time Histogram
+A histogram of 'lead_time' was generated to visualize the distribution. Wider bins were used to accommodate the positively skewed distribution. Subsequently, we categorized lead times into five groups for better analysis.
+
+6.5 Binary Feature for Room Types
+A binary feature, 'reserved_is_assigned,' was introduced to indicate whether the assigned room type matched the reserved room type.
+
+6.6 Creating a Single DateTime Column
+Columns related to arrival date were combined into a single datetime column to simplify date-related operations.
+
+6.7 'cancelations_rate' Feature
+We calculated the 'cancelations_rate' by considering the ratio of previous cancellations to total bookings. The original columns were then dropped.
+
+6.8 Handling DateTime Columns
+Columns like 'reservation_status_date,' 'arrival_date,' and 'reservation_status' were dropped as they were no longer needed.
+
+6.9 One-Hot Encoding
+Categorical columns were one-hot encoded to convert them into a format suitable for machine learning models.
+
+6.10 Train-Test Split and Class Imbalance
+The dataset was split into training and testing sets after scaling the features. To address class imbalance, the Synthetic Minority Over-sampling Technique (SMOTE) was employed on the training dataset, resulting in an equal distribution of canceled and non-canceled bookings.
+
+- The dataset was extensively processed and transformed, resulting in a structured and balanced dataset ready for further analysis and model training. The preprocessing steps aimed to enhance the dataset's quality, reduce dimensionality, and address class imbalance, setting the stage for effective machine learning model development.
 
 ## 7. Data Modelling
 
