@@ -7,10 +7,10 @@
 This project aims to analyze hotel booking data to understand and predict factors influencing cancellations. With a focus on City and Resort Hotels, the goal is to identify patterns and provide recommendations to mitigate cancellation risks. The predictive model developed will enhance revenue stability by recognizing seasonal trends, analyzing waiting times, and enabling personalized loyalty programs. Ultimately, the project seeks to optimize booking processes and contribute to increased profitability in the hotel industry.
 
 ## Table of Contents
-1. Business Understanding
-   1.1 Business Description
-    1.2 Problem Statement
-     1.3 Research Questions
+1. Business Understanding </br>
+   1.1 Business Description </br>
+    1.2 Problem Statement </br>
+     1.3 Research Questions </br>
 2. Importing Libraries And Warnings
 3. Data Understanding
 4. Data Preparation
@@ -282,7 +282,6 @@ Users can refer to this README for quick insights into the success of the models
    - Online travel agents have a larger clientele but also experience higher cancellations.
    - 
 ## 10. Recommendations
-## Recommendations
 
 1. **Rewarding Repeat Guests:**
    - Implement a rewards program for repeat guests to foster loyalty.
