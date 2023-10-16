@@ -8,7 +8,6 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # Loading the machine learning models
-random_forest_model = joblib.load('random_forest_model.pkl')
 gradient_boosting_model = joblib.load('gradient_boost_model.pkl')
 neural_networks_model = keras.models.load_model("keras_model.h5")
 
@@ -48,22 +47,6 @@ def predict_neural_networks():
 
         # Neural Networks prediction function
         result = hotel_prediction(request_json["features"], neural_networks_model)
-
-        # Returning the result as a JSON response
-        return jsonify(result.tolist())  
-
-    except Exception as e:
-        return jsonify({'error': str(e)})
-
-# random forest model
-@app.route('/predict_random_forest', methods=['POST'])
-def predict_random_forest():
-    try:
-        # Getting the request data from the user in JSON format
-        request_json = request.get_json()
-
-        # Random Forest prediction function
-        result = hotel_prediction(request_json["features"], random_forest_model)
 
         # Returning the result as a JSON response
         return jsonify(result.tolist())  
