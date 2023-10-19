@@ -20,7 +20,6 @@ This project aims to analyze hotel booking data to understand and predict factor
 8. Evaluation
 9. Recommendations
 10. Conclusions
-11. Challenges
  
 ## 1. Business Understanding
 ### 1.1 Business Description
