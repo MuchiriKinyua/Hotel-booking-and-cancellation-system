@@ -1,6 +1,3 @@
-@extends('x-app-layout')
-
-@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,28 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Hotel Booking Prediction</title>
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script>
-        window.onload = adjustLayout;
-        window.onresize = adjustLayout;
-    </script>
-    <style>
-        body {
-            background-size: cover;
-            background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-        }
-
-    </style>
+    <!-- Include your styles and scripts here -->
 </head>
 <body>
     <header>
@@ -120,7 +96,8 @@
             <!-- Submit Button -->
             <button type="submit" style="background-color: #333; color: #fff; padding: 0.5rem 1rem; border: none; cursor: pointer;">Predict</button>
     </form>
+    <div>
+        @yield('content')
+    </div>
 </body>
 </html>
-@endsection
-

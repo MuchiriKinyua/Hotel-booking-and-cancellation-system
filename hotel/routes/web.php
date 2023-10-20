@@ -15,13 +15,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home.index');
-// });
+Route::get('/', function () {
+    return view('home.index');
+});
 
 Route::get("/", [HomeController::class, 'index']);
 
 Route::post("/upload_post", [HomeController::class, 'upload']);
+
+Route::post('/predict', [HomeController::class, 'predict'])->name('predict');
 
 Route::middleware([
     'auth:sanctum',
