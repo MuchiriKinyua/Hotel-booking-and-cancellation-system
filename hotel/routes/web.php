@@ -21,6 +21,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get("/", [HomeController::class, 'index']);
 
+Route::post("/upload_post", [HomeController::class, 'upload']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

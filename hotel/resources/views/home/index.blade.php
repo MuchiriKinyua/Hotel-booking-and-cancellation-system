@@ -22,6 +22,15 @@
         <label>HOTEL BOOKING AND CANCELLATION SYSTEM</label>
         <ul>
 
+            @if (Route::has('login'))
+
+                @auth
+                <li>
+                    <a href="{{ url('/dashboard') }}" class="btn btn-success">{{ Auth::user()->name }}</a>
+                </li>
+
+                @else
+
             <li>
                 <a href="{{ route('register') }}" class="btn btn-success">Register</a>
             </li>
@@ -29,6 +38,11 @@
             <li>
                 <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
             </li>
+
+            @endauth
+
+            @endif
+
         </ul>
     </nav>
     <div class="dev_design">
