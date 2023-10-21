@@ -12,7 +12,7 @@
     <header>
         <h1>Hotel Booking Prediction</h1>
     </header>
-    <form action="{{ route('predict') }}" method="POST" enctype="multipart/form-data">
+    <form action="/predict" method="POST" enctype="multipart/form-data">
 
             <!-- Hotel Field -->
             <label for="hotel">Hotel:</label>
@@ -95,9 +95,9 @@
 
             <!-- Submit Button -->
             <button type="submit" style="background-color: #333; color: #fff; padding: 0.5rem 1rem; border: none; cursor: pointer;">Predict</button>
-    </form>
 
-    <iframe id="dash-frame" src="http://localhost:8050" width="800" height="400"></iframe>
+            <iframe id="dash-frame" src="http://localhost:8050" width="800" height="400"></iframe>
+    </form>
 
 </body>
 </html>
